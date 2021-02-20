@@ -18,11 +18,11 @@ y_train = torch.from_numpy(y_train.values.astype(np.float32))
 
 
 class Net(nn.Module):
-    def __init__(self, input_features=input_rows, hidden_layer1=5, hidden_layer2=10, output_features=1):
+    def __init__(self, input_features=input_rows, hidden_layer1=25, hidden_layer2=30, output_features=1):
         super().__init__()
         self.fc1 = nn.Linear(input_features, hidden_layer1)
         self.fc2 = nn.Linear(hidden_layer1, hidden_layer2)
-        self.out = nn.Linear(hidden_layer1, output_features)
+        self.out = nn.Linear(hidden_layer2, output_features)
 
     def forward(self, x):
         x = F.relu(self.fc1(x))
